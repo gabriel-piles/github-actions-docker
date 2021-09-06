@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-import sys
+from data import Data
 
 app = FastAPI()
 
 
 @app.get('/')
 async def info():
-    return sys.version
+    return Data(paragraphs=['a']).json()
