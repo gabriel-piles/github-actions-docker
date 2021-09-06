@@ -4,6 +4,6 @@ import sys
 app = FastAPI()
 
 
-@app.get('/info')
+@app.get('/')
 async def info():
     return sys.version
