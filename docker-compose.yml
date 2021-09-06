@@ -6,3 +6,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5050:5050"
+  other-github-actions-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile_other
+    depends_on:
+      - redis-github-actions-docker
+  redis-github-actions-docker:
+    image: "redis:alpine"
+    command: redis-server
+    ports:
+      - "6479:6379"
+    environment:
+      - REDIS_REPLICATION_MODE=master
