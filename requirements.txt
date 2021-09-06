@@ -2,3 +2,4 @@ fastapi~=0.67.0
 uvicorn
 gunicorn
 requests~=2.26.0
+PyRSMQ

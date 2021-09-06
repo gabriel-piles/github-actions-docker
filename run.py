@@ -1,12 +1,16 @@
+from rsmq import RedisSMQ
+from rsmq.consumer import RedisSMQConsumer
 
 
-
-def process(a,b,c,d):
+def process(a, b, c, d):
     print(b)
 
 
-redis_smq_consumer = RedisSMQConsumer(qname="extractions_tasks",
-                                              processor=process,
-                                              host='localhost',
-                                              port=6379)
+extractions_queue = RedisSMQ(host='redis-github-actions-docker', port=6379, qname="ex")
+extractions_queue.createQueue().exceptions(False).execute()
+
+redis_smq_consumer = RedisSMQConsumer(qname="ex",
+                                      processor=process,
+                                      host='redis-github-actions-docker',
+                                      port=6379)
 redis_smq_consumer.run()
