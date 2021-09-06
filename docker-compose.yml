@@ -1,0 +1,9 @@
+version: '3'
+services:
+  github-actions-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo_paragraphs
+      - redis_paragraphs
