@@ -6,12 +6,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5050:5050"
+    volumes:
+      - ./docker_volume:/home/appuser/docker_volume
   other-github-actions-docker:
     build:
       context: .
       dockerfile: Dockerfile_other
     depends_on:
       - redis-github-actions-docker
+    volumes:
+      - ./docker_volume:/home/appuser/docker_volume
   redis-github-actions-docker:
     image: "redis:alpine"
     command: redis-server
