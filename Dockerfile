@@ -9,6 +9,8 @@ USER appuser
 WORKDIR /home/appuser
 COPY --chown=appuser . .
 
+RUN rm -rf docker_volume
+
 ENV FLASK_APP app.py
 
 CMD gunicorn -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:5050
