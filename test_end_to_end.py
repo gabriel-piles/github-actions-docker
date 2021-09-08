@@ -15,6 +15,6 @@ class TestEndToEnd(TestCase):
 
         response = requests.get(f"{host}")
 
-        self.assertEqual(200, response.status_code)
+        self.assertEqual('ok', response.json())
 
         subprocess.run('docker-compose down', shell=True)
