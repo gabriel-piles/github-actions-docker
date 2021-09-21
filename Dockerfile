@@ -8,10 +8,7 @@ COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-
-
 RUN adduser appuser
-
 
 USER appuser
 WORKDIR /home/appuser
@@ -25,6 +22,5 @@ RUN chown appuser:appuser /home/appuser/docker_volume
 RUN touch /home/appuser/docker_volume/service.log
 
 ENV FLASK_APP app.py
-
 CMD gunicorn -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:5050
 

@@ -14,6 +14,7 @@ def get_logger():
         handler = graypy.GELFUDPHandler(graylog_ip, 12201, localname="get_pdf_paragraphs")
         logger.addHandler(handler)
     else:
-        logger.addHandler(logging.FileHandler('./docker_volume/service.log'))
+        os.mkdir('logs')
+        logger.addHandler(logging.FileHandler('./logs/service.log'))
 
     return logger
