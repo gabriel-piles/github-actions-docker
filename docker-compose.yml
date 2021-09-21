@@ -7,7 +7,7 @@ services:
     ports:
       - "5050:5050"
     volumes:
-      - ./docker_volume:/app/docker_volume
+      - ./docker_volume:/home/appuser/docker_volume
 #  other-github-actions-docker:
 #    build:
 #      context: .
