@@ -11,8 +11,8 @@ logger = get_logger()
 async def info():
     try:
         logger.info('works')
-        with open('./docker_volume/a.txt', mode='w') as file:
-            file.write('works')
+        # with open('./docker_volume/a.txt', mode='w') as file:
+        #     file.write('works')
         return 'works'
     except Exception as e:
         return str(e)
