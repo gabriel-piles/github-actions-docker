@@ -12,6 +12,8 @@ RUN adduser appuser
 RUN mkdir /home/appuser/docker_volume
 RUN chown appuser:appuser /home/appuser/docker_volume
 
+RUN touch service.log
+
 USER appuser
 WORKDIR /home/appuser
 
