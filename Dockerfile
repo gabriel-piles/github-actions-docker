@@ -16,8 +16,8 @@ RUN chown appuser:appuser /home/appuser/docker_volume
 USER appuser
 WORKDIR /home/appuser
 
-RUN touch /home/appuser/docker_volume/service.log
 COPY --chown=appuser . .
+RUN touch /home/appuser/docker_volume/service.log
 
 ENV FLASK_APP app.py
 
