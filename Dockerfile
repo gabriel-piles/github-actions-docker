@@ -12,11 +12,11 @@ RUN adduser appuser
 RUN mkdir /home/appuser/docker_volume
 RUN chown appuser:appuser /home/appuser/docker_volume
 
-RUN touch service.log
 
 USER appuser
 WORKDIR /home/appuser
 
+RUN touch /home/appuser/docker_volume/service.log
 COPY --chown=appuser . .
 
 ENV FLASK_APP app.py
