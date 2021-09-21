@@ -9,8 +9,8 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 RUN adduser appuser
-RUN mkdir /home/appuser/docker_volume
-RUN chown appuser:appuser /home/appuser/docker_volume
+#RUN mkdir /home/appuser/docker_volume
+#RUN chown appuser:appuser /home/appuser/docker_volume
 
 
 USER appuser
